@@ -6,6 +6,8 @@ export interface PostType {
   title: string;
   imageUrl: string;
   posted_by: UserType;
+  createdAt: Date;
+  updatedAt: Date;
 }
 
 const Post = new Schema(
@@ -18,6 +20,12 @@ const Post = new Schema(
       required: true,
       type: String,
     },
+    comments: [
+      {
+        type: mongoose.Types.ObjectId,
+        ref: 'Comment',
+      },
+    ],
     posted_by: {
       type: mongoose.Types.ObjectId,
       ref: 'User',

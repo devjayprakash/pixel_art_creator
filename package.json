@@ -11,6 +11,7 @@
   "dependencies": {
     "@clerk/nextjs": "^4.29.2",
     "@nextui-org/react": "^2.2.9",
+    "dayjs": "^1.11.10",
     "framer-motion": "^10.17.9",
     "immer": "^10.0.3",
     "joi": "^17.11.0",
