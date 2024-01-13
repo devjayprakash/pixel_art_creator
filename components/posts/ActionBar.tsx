@@ -1,20 +1,20 @@
 'use client';
 import { createCommentOnPost } from '@/actions/posts';
-import { CommentType } from '@/schema/Comment';
 import { Button, Input } from '@nextui-org/react';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { AiOutlineComment, AiOutlineLike } from 'react-icons/ai';
 import { toast } from 'react-toastify';
-import Comments from './Comments';
 
 interface ActionBarProps {
   post_id: string;
+  commentSection: React.ReactNode;
 }
 
-const ActionBar = ({ post_id }: ActionBarProps) => {
+const ActionBar = ({ post_id, commentSection }: ActionBarProps) => {
   const [showCommentSection, setShowCommentSection] = useState(false);
   const [comment, setComment] = useState('');
-  const [comments] = useState<CommentType[]>([]);
+  const router = useRouter();
 
   const createComment = async () => {
     if (!comment) {
@@ -27,6 +27,7 @@ const ActionBar = ({ post_id }: ActionBarProps) => {
     toast('Comment created', {
       type: 'success',
     });
+    router.refresh();
   };
 
   return (
@@ -62,7 +63,7 @@ const ActionBar = ({ post_id }: ActionBarProps) => {
               Send
             </Button>
           </div>
-          <Comments comments={comments} />
+          {commentSection}
         </div>
       )}
     </div>

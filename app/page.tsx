@@ -1,4 +1,5 @@
 import ActionBar from '@/components/posts/ActionBar';
+import Comments from '@/components/posts/Comments';
 import PostModel, { PostType } from '@/schema/Post';
 import UserModal from '@/schema/User';
 import { SignedIn } from '@clerk/nextjs';
@@ -49,7 +50,10 @@ export default async function Home() {
               alt={post.title}
             />
             <SignedIn>
-              <ActionBar post_id={post._id} />
+              <ActionBar
+                commentSection={<Comments post_id={post._id} />}
+                post_id={post._id}
+              />
             </SignedIn>
           </div>
         );
