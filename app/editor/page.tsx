@@ -101,6 +101,7 @@ const Editor: React.FC = () => {
           const queue = [[pixel_y, pixel_x]];
 
           const new_grid = [...pixelGrid];
+          const val: any = 0;
 
           while (queue.length > 0) {
             if (!val) continue;
