@@ -28,8 +28,6 @@ const Post = new Schema(
   }
 );
 
-console.log(models.Post);
-
 const PostModel = models.Post || mongoose.model('Post', Post);
 
 export default PostModel;

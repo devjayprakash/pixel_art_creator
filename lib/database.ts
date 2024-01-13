@@ -4,6 +4,7 @@ const MONGO_DB_URL = `mongodb+srv://admin:${process.env.MONGO_DB_PASS}@cluster0.
 
 let cached = global.mongoose;
 
+//@ts-ignore
 if (!cached) cached = global.mongoose = { promise: null, conn: null };
 
 export const connectMongo = async () => {
